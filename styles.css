@@ -1,0 +1,267 @@
+* {
+	box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    color: #254044;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    
+	height: 100vh;
+	width: 100vw;
+	background-color: #eee6b2;
+    padding: 30px;
+}
+
+div.contact-form {
+	background-color: white;
+    width: 100%;
+    max-width: 700px;
+    height: fit-content;
+    margin-top: 40px;
+    margin-right: auto;
+    margin-bottom: 50px;
+    margin-left: auto;
+    border-radius: 15px;
+    padding: 30px;
+
+}
+
+h1 {
+    padding-bottom: 30px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+h4 {
+    font-weight: 400;
+}
+
+p.required {
+    display: inline;
+    color: red;
+}
+
+div.name {
+    display: flex;
+    gap: 12px ;
+    margin-bottom: 16px;
+}
+
+div.name div {
+    flex-grow: 1;
+}
+
+input, textarea {
+    margin-top: 12px;
+}
+
+div.email, div.query-type {
+    margin-bottom: 24px;
+}
+
+div.query-options {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+div.query-options div {
+    flex-grow: 1;
+}
+
+div.option {
+    border: 1px solid #87A3A6;;
+    border-radius: 8px;
+
+    padding: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    position: relative;
+}
+
+div.option img.radio-selected {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+
+    display: none;
+}
+
+div.option:hover {
+    border-color: #0C7D69;
+}
+
+div.option:has(input[type="radio"]:checked) {
+    background-color: #d7ece1;
+}
+
+input[type="radio"]:checked + img.radio-selected {
+    display: initial;
+}
+
+div.option input {
+    margin: 0px;
+}
+
+div.option label {
+    width: 100%;
+}
+
+div.message {
+    margin-bottom: 16px;
+}
+
+div.message textarea {
+    height: 108px;
+    resize: none;
+}
+
+div.contact-consent {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    position: relative;
+}
+
+div.contact-consent input {
+    z-index: 1;
+}
+
+div.contact-consent input:checked {
+    appearance: none;
+    width: 13px;
+    height: 13px;
+    cursor: pointer;
+    z-index: 2; /* Keep it on top so we can click it */
+}
+
+div.contact-consent img.checkbox-selected {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border-radius: 2px;
+
+    z-index: 1;
+
+    pointer-events: none; /* Crucial: lets clicks pass through to the input */
+    display: none; /* Hidden by default when unchecked */
+}
+
+#contact-consent:checked + img.checkbox-selected {
+    display: initial;
+}
+
+
+div.contact-consent-container p.error-message {
+    margin-top: 16px;
+}
+
+input[type="text"], 
+input[type="email"], 
+textarea {
+    width: 100%;
+    height: 35px;
+    padding: 10px 14px;
+    font-size: 14px;
+    line-height: 150%;
+
+    border: 1px solid #87A3A6;
+    border-radius: 8px;
+}
+
+input[type="text"]:hover, 
+input[type="email"]:hover, 
+textarea:hover {
+    border-color: #0C7D69;
+    cursor: pointer;
+}
+
+input[type="text"]:focus-visible, 
+input[type="email"]:focus-visible, 
+textarea:focus-visible {
+    border-color: #0C7D69;
+    outline-color: #0C7D69;
+}
+
+input[type="button"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid gray;
+    font-size: 14px;
+    line-height: 120%;
+
+    margin-top: 34px;
+    border-radius: 8px;
+
+    background-color: #0C7D69;
+    color: white;
+
+    transition-property: box-shadow, transform;
+    transition-duration: 0.1s;
+}
+
+input[type="button"]:hover {
+    transform: scale(1.01);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    margin-top: 0px;
+}
+
+p.error-message {
+    display: none;
+    margin-top: 8px;
+    color: red;
+}
+
+/* Error Styles */
+
+div.first-name.error input,
+div.last-name.error input,
+div.email.error input,
+div.message.error textarea
+{
+    border-color: red;
+}
+
+div.first-name.error p.error-message,
+div.last-name.error p.error-message,
+div.email.error p.error-message,
+div.query-type.error p.error-message,
+div.message.error p.error-message,
+div.contact-consent-container.error p.error-message
+{
+    display: block;
+}
+
+/* Media Queries */
+
+@media (max-width: 480px) {
+    body {
+        height: 100%;
+    }
+
+    div.name {
+        flex-direction: column;
+        margin-bottom: 12px;
+    }
+
+    div.query-options {
+        flex-direction: column;
+    }
+}
