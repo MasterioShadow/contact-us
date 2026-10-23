@@ -1,10 +1,13 @@
+:root{
+    font-size: 14px;
+    color: #254044;
+}
+
 * {
 	box-sizing: border-box;
     margin: 0px;
     padding: 0px;
     font-family: "Inter", sans-serif;
-    font-size: 14px;
-    color: #254044;
 }
 
 body {
@@ -15,7 +18,7 @@ body {
     
 	height: 100vh;
 	width: 100vw;
-	background-color: #eee6b2;
+	background-color: #f5eec1;
     padding: 30px;
 }
 
@@ -24,7 +27,7 @@ div.contact-form {
     width: 100%;
     max-width: 700px;
     height: fit-content;
-    margin-top: 40px;
+    margin-top: 10px;
     margin-right: auto;
     margin-bottom: 50px;
     margin-left: auto;
@@ -41,6 +44,48 @@ h1 {
 
 h4 {
     font-weight: 400;
+}
+
+div.success {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 16px;
+    padding: 16px;
+    width: fit-content;
+    height: 0px;
+    margin-bottom: 6px;
+
+    background-color: #104a4e;
+    color: white;
+
+    position: relative;
+    opacity: 0;
+
+    transition-property: opacity, height;
+    transition-duration: 0.5s;
+}
+
+div.success.submitted {
+    height: 100px;
+    opacity: 1;
+}
+
+div.success div.success-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* margin-bottom: 8px; */
+}
+
+div.success-header h2 {
+    font-size: 18px; 
+}
+
+div.success-header img {
+    width: 18px;
+    height: 18px;
 }
 
 p.required {
